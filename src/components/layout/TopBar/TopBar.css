@@ -4,9 +4,9 @@
   align-items: center;
   width: 100vw;
   height: 50px;
-  color: #fff;
   padding: 5px 25px;
   position: relative;
+  background-color: #fff;
 }
 
 .logo {

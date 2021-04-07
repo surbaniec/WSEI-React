@@ -1,10 +1,16 @@
 import { FC } from 'react';
+import SideBar from '../layout/SideBar/SideBar';
 import TopBar from '../layout/TopBar/TopBar';
 
-const Home: FC = () => {
+export interface IUser {
+  user: object;
+}
+
+const Home: React.FC<IUser> = ({ user }) => {
   return (
     <>
       <TopBar />
+      <SideBar />
     </>
   );
 };
