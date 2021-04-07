@@ -9,7 +9,7 @@
   width: 150px;
 }
 
-.icon-wrapper {
+.notification__icon-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,11 +22,11 @@
   transition: 0.2s ease-in;
 }
 
-.icon-wrapper:hover {
+.notification__icon-wrapper:hover {
   background-color: #e6e6e6;
 }
 
-.icon-wrapper::after {
+.notification__icon-wrapper::after {
   content: '3';
   position: absolute;
   right: -5px;

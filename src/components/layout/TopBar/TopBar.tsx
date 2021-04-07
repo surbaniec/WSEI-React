@@ -7,7 +7,7 @@ import './TopBar.css';
 export const TopBar: FC = () => {
   return (
     <div className='topbar-container'>
-      <img src='../../../assets/logo.png' className='logo' alt='logo' />
+      <img src='../../../assets/logo.png' className='topbar__logo' alt='logo' />
       <DropdownMenu />
       <SearchBar />
       <NotificationPanel />

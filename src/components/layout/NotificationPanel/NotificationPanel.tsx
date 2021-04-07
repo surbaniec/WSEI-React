@@ -8,20 +8,12 @@ const NotificationPanel: FC = () => {
       <Link to='/'>
         <img src='./assets/house.svg' alt='home' />
       </Link>
-      <div className='icon-wrapper'>
-        <img
-          src='./assets/comments.svg'
-          alt='messages'
-          className='notification-icon'
-        />
+      <div className='notification__icon-wrapper'>
+        <img src='./assets/comments.svg' alt='messages' />
       </div>
-      <div className='icon-wrapper'>
+      <div className='notification__icon-wrapper'>
         {' '}
-        <img
-          src='./assets/bell.svg'
-          alt='notifications'
-          className='notification-icon'
-        />
+        <img src='./assets/bell.svg' alt='notifications' />
       </div>
     </div>
   );
