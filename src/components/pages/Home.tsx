@@ -1,6 +1,4 @@
 import { FC } from 'react';
-import SideBar from '../layout/SideBar/SideBar';
-import TopBar from '../layout/TopBar/TopBar';
 
 export interface IUser {
   user: object;
@@ -9,8 +7,7 @@ export interface IUser {
 const Home: React.FC<IUser> = ({ user }) => {
   return (
     <>
-      <TopBar />
-      <SideBar />
+      <span>Home page</span>
     </>
   );
 };

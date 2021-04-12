@@ -18,28 +18,44 @@ const SideBar: FC = () => {
         </div>
         <div className='profile-card__footer'>
           <div className='profile-card__footer-wrapper'>
-            <img src='./assets/network.png' alt='network' />
-            <Link to='' className='profile-card__link'>
+            <img
+              className='profile-card__icon'
+              src='./assets/network.png'
+              alt='network'
+            />
+            <Link to='/testpage' className='profile-card__link'>
               Your network
             </Link>
-            <Link to='' className='profile-card__btn'>
-              <img src='./assets/network.svg' alt='network' />
+            <Link to='testpage' className='profile-card__btn'>
+              <img
+                className='profile-card__icon'
+                src='./assets/network.svg'
+                alt='network'
+              />
             </Link>
           </div>
           <div className='profile-card__footer-wrapper'>
-            <img src='./assets/people.svg' alt='publications' />
-            <Link to='' className='profile-card__link'>
+            <img
+              className='profile-card__icon'
+              src='./assets/people.svg'
+              alt='publications'
+            />
+            <Link to='testpage' className='profile-card__link'>
               Your publications
             </Link>
-            <Link to='' className='profile-card__btn'>
-              <img src='./assets/plus.svg' alt='publications' />
+            <Link to='testpage' className='profile-card__btn'>
+              <img
+                className='profile-card__icon'
+                src='./assets/plus.svg'
+                alt='publications'
+              />
             </Link>
           </div>
         </div>
       </div>
       <ul className='sidebar__menu'>
         <li className='sidebar__menu-item'>
-          <Link to='' className='sidebar__menu-link'>
+          <Link to='/testpage' className='sidebar__menu-link'>
             <img
               className='sidebar__menu-icon'
               src='./assets/ecosystem.svg'
@@ -49,7 +65,7 @@ const SideBar: FC = () => {
           </Link>
         </li>
         <li className='sidebar__menu-item'>
-          <Link to='' className='sidebar__menu-link'>
+          <Link to='/testpage' className='sidebar__menu-link'>
             <img
               className='sidebar__menu-icon'
               src='./assets/ecosystem.svg'

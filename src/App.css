@@ -1,3 +1,15 @@
+:root {
+  /* colors */
+  --white-color: #ffffff;
+  --light-blue-color: #f4f9f9;
+  --blue-color: #035aa6;
+  --dark-blue-color: #084177;
+  --light-gray-color: #cccccc;
+  --dark-gray-color: #bbbbbb;
+  --intense-blue-color: #8fd6e1;
+  --box-shadow-color: #dddddd;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,13 +20,3 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: #f4f9f9;
 }
-
-/* kolory:
- biały #ffffff
- błekitno-biały #f4f9f9
- niebieski #035aa6;
- granatowy #084177;
- jasno-szary #ccc
- ciemno-szary #bbbbbb
- błękitny #8fd6e1;
-*/

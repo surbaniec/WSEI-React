@@ -1,20 +1,19 @@
 .sidebar-container {
-  width: 17vw;
-  display: flex;
-  flex-direction: column;
+  width: 300px;
+  display: inline-block;
 }
 
 .profile-card {
   margin: 15px auto;
-  width: 80%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   padding: 15px 0;
-  background-color: #fff;
+  background-color: var(--white-color);
   border-radius: 6px;
-  box-shadow: 0px 10px 20px 0px #ddd;
+  box-shadow: 0px 10px 20px 0px var(--box-shadow-color);
 }
 
 .profile-card__header {
@@ -36,7 +35,7 @@
 }
 
 .profile-card__job {
-  color: #ccc;
+  color: var(--light-gray-color);
   font-weight: 300;
   font-size: 14px;
   margin-top: 5px;
@@ -49,7 +48,7 @@
   justify-content: space-between;
   padding: 10px 0;
   width: 100%;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid var(--light-gray-color);
   margin-top: 20px;
 }
 
@@ -58,12 +57,12 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0 20px;
+  padding: 0 15px;
   margin: 5px 0;
 }
 
 .profile-card__btn {
-  border: 1px solid #084177;
+  border: 1px solid var(--dark-blue-color);
   border-radius: 6px;
   width: 35px;
   height: 25px;
@@ -73,8 +72,14 @@
 }
 
 .profile-card__link {
+  width: 70%;
   text-decoration: none;
-  color: #084177;
+  color: var(--dark-blue-color);
+}
+
+.profile-card__icon {
+  width: 20px;
+  height: 20px;
 }
 
 .sidebar__menu {
@@ -103,5 +108,5 @@
 }
 
 .sidebar__menu-title {
-  color: #084177;
+  color: var(--dark-blue-color);
 }

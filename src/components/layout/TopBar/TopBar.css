@@ -1,12 +1,12 @@
 .topbar-container {
-  box-shadow: 0px 5px 20px -5px #ddd;
+  box-shadow: 0px 5px 20px -5px var(--box-shadow-color);
   display: flex;
   align-items: center;
   width: 100vw;
   height: 50px;
   padding: 5px 25px;
   position: relative;
-  background-color: #fff;
+  background-color: var(--white-color);
 }
 
 .topbar__logo {
