@@ -38,6 +38,12 @@
   align-items: center;
 }
 
+.menu__link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
 .menu__item-icon {
   margin-right: 10px;
 }
@@ -71,6 +77,11 @@
   color: var(--dark-blue-color);
 }
 
+.menu__profile-link {
+  display: flex;
+  text-decoration: none;
+}
+
 .menu__item-profile-btn {
   cursor: pointer;
   border: none;
@@ -84,6 +95,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
 }
 
 .expanded-menu__logout-btn {

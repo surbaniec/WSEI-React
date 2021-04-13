@@ -1,20 +1,33 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 import './SideBar.css';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../../App';
 
 const SideBar: FC = () => {
+  const currentUser = useContext(UserContext);
+
   return (
     <div className='sidebar-container'>
       <div className='profile-card'>
         <div className='profile-card__header'>
           {/* eslint-disable-next-line */}
           <img
-            src='https://secure.gravatar.com/avatar/1fd4fb5e1c8d00621b32a36a54b67b50?s=256&d=mm&r=g'
+            src={
+              currentUser
+                ? currentUser['thumbnailUrl']
+                : 'https://secure.gravatar.com/avatar/1fd4fb5e1c8d00621b32a36a54b67b50?s=256&d=mm&r=g'
+            }
             alt='profile picture'
             className='profile-card__avatar'
           />
-          <span className='profile-card__name'>Humberta Swift</span>
-          <span className='profile-card__job'>Job title - Company</span>
+          <span className='profile-card__name'>
+            {currentUser ? currentUser['name'] : 'username'}
+          </span>
+          <span className='profile-card__job'>
+            {currentUser['company']
+              ? currentUser['company']['name']
+              : 'company name'}
+          </span>
         </div>
         <div className='profile-card__footer'>
           <div className='profile-card__footer-wrapper'>
@@ -75,7 +88,7 @@ const SideBar: FC = () => {
           </Link>
         </li>
         <li className='sidebar__menu-item'>
-          <Link to='' className='sidebar__menu-link'>
+          <Link to='/entities' className='sidebar__menu-link'>
             <img
               className='sidebar__menu-icon'
               src='./assets/entities2.svg'

@@ -1,10 +1,6 @@
 import { FC } from 'react';
 
-export interface IUser {
-  user: object;
-}
-
-const Home: React.FC<IUser> = ({ user }) => {
+const Home: FC = () => {
   return (
     <>
       <span>Home page</span>
