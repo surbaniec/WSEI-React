@@ -6,12 +6,7 @@ import ExpandedMenu from '../ExpandedMenu/ExpandedMenu';
 const DropdownMenu: FC = () => {
   const [selectedPage, setSelectedPage] = useState('Home');
 
-  const [
-    wrapperRef,
-    dropdownOpen,
-    toggleDropdown,
-    closeDropdown,
-  ] = useDropdown();
+  const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown();
 
   const handleClick = () => {
     toggleDropdown();

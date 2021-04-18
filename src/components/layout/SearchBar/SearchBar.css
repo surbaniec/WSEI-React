@@ -1,7 +1,7 @@
 .searchbar-container {
   border: 1px solid var(--light-gray-color);
   border-radius: 3px;
-  width: 600px;
+  width: 30%;
   height: 75%;
   position: absolute;
   left: 50%;
