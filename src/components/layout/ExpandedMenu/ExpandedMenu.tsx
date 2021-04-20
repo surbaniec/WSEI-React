@@ -23,6 +23,7 @@ const ExpandedMenu = ({ changeCurrentPageTitle }) => {
         onChange={(e) => handleChange(e)}
       />
       <div className='expanded-menu__body'>
+        {/* checks if user typed something into filter input. If yes - filters corresponding items, if no - displaying default menu */}
         {filterText !== '' ? (
           <>
             <span className='expanded-menu__section-name'>Platform</span>
@@ -86,7 +87,8 @@ const ExpandedMenu = ({ changeCurrentPageTitle }) => {
             </ul>
           </>
         )}
-
+        {/* END */}
+        {/* empty element */}
         <></>
       </div>
       <div className='expanded-menu__footer'>

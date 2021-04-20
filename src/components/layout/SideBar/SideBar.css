@@ -1,6 +1,6 @@
 .sidebar-container {
+  margin: 0 auto;
   width: 300px;
-  display: inline-block;
 }
 
 .profile-card {
@@ -109,4 +109,10 @@
 
 .sidebar__menu-title {
   color: var(--dark-blue-color);
+}
+
+@media (min-width: 760px) {
+  .sidebar-container {
+    display: inline-block;
+  }
 }
