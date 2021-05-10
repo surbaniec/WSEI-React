@@ -5,6 +5,9 @@ import ExpandedMenu from '../ExpandedMenu/ExpandedMenu';
 
 const DropdownMenu: FC = () => {
   const [selectedPage, setSelectedPage] = useState('Home');
+  const [currentMenuIcon, setCurrentMenuIcon] = useState(
+    '../../../assets/house2.svg'
+  );
 
   const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown();
 
@@ -16,12 +19,16 @@ const DropdownMenu: FC = () => {
     setSelectedPage(title);
   };
 
+  const changeCurrentMenuIcon = (iconUrl: string) => {
+    setCurrentMenuIcon(iconUrl);
+  };
+
   return (
     <div ref={wrapperRef}>
       <button className='dropdown__btn' onClick={() => handleClick()}>
         <img
           className='dropdown__icon--home'
-          src='../../../assets/house2.svg'
+          src={currentMenuIcon}
           alt='home'
         />
         <span>{selectedPage}</span>
@@ -32,7 +39,10 @@ const DropdownMenu: FC = () => {
         />
       </button>
       {dropdownOpen && (
-        <ExpandedMenu changeCurrentPageTitle={changeCurrentPageTitle} />
+        <ExpandedMenu
+          changeCurrentPageTitle={changeCurrentPageTitle}
+          changeCurrentMenuIcon={changeCurrentMenuIcon}
+        />
       )}
     </div>
   );

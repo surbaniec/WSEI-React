@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './ExpandedMenu.css';
 import { menu1, menu2 } from '../../../data/MenuData';
 import { Link } from 'react-router-dom';
 import MenuItem from '../MenuItem/MenuItem';
+import { UserContext } from '../../../App';
 
-const ExpandedMenu = ({ changeCurrentPageTitle }) => {
+const ExpandedMenu = ({ changeCurrentPageTitle, changeCurrentMenuIcon }) => {
+  const currentUser = useContext(UserContext);
+
   const [filterText, setFilterText] = useState('');
-  const handleClick = (title: string) => {
+
+  const handleClick = (title: string, iconUrl: string) => {
     changeCurrentPageTitle(title);
+    changeCurrentMenuIcon(iconUrl);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -98,16 +103,24 @@ const ExpandedMenu = ({ changeCurrentPageTitle }) => {
             <Link
               to='/profile'
               className='menu__profile-link'
-              onClick={() => handleClick('Account')}
+              onClick={() =>
+                handleClick('Account', currentUser['thumbnailUrl'])
+              }
             >
               {/* eslint-disable-next-line */}
               <img
                 className='menu__item-icon account-icon'
-                src='https://secure.gravatar.com/avatar/1fd4fb5e1c8d00621b32a36a54b67b50?s=256&d=mm&r=g'
+                src={
+                  currentUser
+                    ? currentUser['thumbnailUrl']
+                    : 'https://secure.gravatar.com/avatar/1fd4fb5e1c8d00621b32a36a54b67b50?s=256&d=mm&r=g'
+                }
                 alt=''
               />
               <div className='menu__item-inner-wrapper'>
-                <span className='menu__item-username'>Humberta Swift</span>
+                <span className='menu__item-username'>
+                  {currentUser ? currentUser['name'] : 'username'}
+                </span>
                 <button className='menu__item-profile-btn'>See profile</button>
               </div>
             </Link>
@@ -116,7 +129,7 @@ const ExpandedMenu = ({ changeCurrentPageTitle }) => {
             <Link
               to='/testpage'
               className='menu__link'
-              onClick={() => handleClick('Privacy')}
+              onClick={() => handleClick('Privacy', './assets/privacy.svg')}
             >
               {' '}
               <img
@@ -131,7 +144,7 @@ const ExpandedMenu = ({ changeCurrentPageTitle }) => {
             <Link
               to='/testpage'
               className='menu__link'
-              onClick={() => handleClick('Settings')}
+              onClick={() => handleClick('Settings', './assets/settings.svg')}
             >
               {' '}
               <img

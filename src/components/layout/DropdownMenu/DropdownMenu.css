@@ -12,6 +12,8 @@
 
 .dropdown__icon--home {
   margin-right: 10px;
+  width: 30px;
+  height: auto;
 }
 
 .dropdown__icon--arrow {
