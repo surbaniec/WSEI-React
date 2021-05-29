@@ -1,10 +1,10 @@
 import { FC, useContext } from 'react';
 import './SideBar.css';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../../../App';
+import { CurrentUserContext } from '../../../App';
 
 const SideBar: FC = () => {
-  const currentUser = useContext(UserContext);
+  const currentUser = useContext(CurrentUserContext);
 
   return (
     <div className='sidebar-container'>

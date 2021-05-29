@@ -3,10 +3,10 @@ import './ExpandedMenu.css';
 import { menu1, menu2 } from '../../../data/MenuData';
 import { Link } from 'react-router-dom';
 import MenuItem from '../MenuItem/MenuItem';
-import { UserContext } from '../../../App';
+import { CurrentUserContext } from '../../../App';
 
 const ExpandedMenu = ({ changeCurrentPageTitle, changeCurrentMenuIcon }) => {
-  const currentUser = useContext(UserContext);
+  const currentUser = useContext(CurrentUserContext);
 
   const [filterText, setFilterText] = useState('');
 

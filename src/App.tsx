@@ -10,14 +10,15 @@ import Entities from './components/pages/Entities';
 import Workspace from './components/pages/Workspace';
 import Profile from './components/pages/Profile';
 
-export const UserContext = createContext({});
+export const CurrentUserContext = createContext({});
+export const PostsDataContext = createContext({});
 
 function App() {
   const [users, setUsers] = useState({});
   const [photos, setPhotos] = useState({});
-  const currentUserID = 0;
+  const [posts, setPosts] = useState({});
 
-  const getUser = async () => {
+  const getUsers = async () => {
     try {
       const response = await axios.get(
         `https://jsonplaceholder.typicode.com/users`
@@ -32,7 +33,7 @@ function App() {
   const getPhotos = async () => {
     try {
       const response = await axios.get(
-        `https://jsonplaceholder.typicode.com/photos`
+        `https://jsonplaceholder.typicode.com/photos?_start=0&_limit=50`
       );
       const data = response.data;
       setPhotos(data);
@@ -41,40 +42,65 @@ function App() {
     }
   };
 
+  const getPosts = async () => {
+    try {
+      const response = await axios.get(
+        `https://jsonplaceholder.typicode.com/posts`
+      );
+      const data = response.data;
+      setPosts(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    getUser();
+    getUsers();
     getPhotos();
+    getPosts();
   }, []);
+
+  const currentUserID = 0;
 
   const currentUser: object = {
     ...users[currentUserID],
     ...photos[currentUserID],
   };
 
+  const postsData: object = {
+    users,
+    photos,
+    posts,
+  };
+
   return (
-    <UserContext.Provider value={currentUser}>
-      <Router>
-        <TopBar />
-        <SideBar />
-        <Switch>
-          <Route exact path='/'>
-            <Home />
-          </Route>
-          <Route path='/testpage'>
-            <TestPage />
-          </Route>
-          <Route path='/entities'>
-            <Entities />
-          </Route>
-          <Route path='/workspace'>
-            <Workspace />
-          </Route>
-          <Route path='/profile'>
-            <Profile />
-          </Route>
-        </Switch>
-      </Router>
-    </UserContext.Provider>
+    <CurrentUserContext.Provider value={currentUser}>
+      <PostsDataContext.Provider value={postsData}>
+        <Router>
+          <TopBar />
+          <SideBar />
+          <Switch>
+            <Route exact path='/'>
+              {Object.keys(posts).length !== 0 &&
+                Object.keys(photos).length !== 0 &&
+                Object.keys(users).length !== 0 && <Home />}
+            </Route>
+            <Route path='/testpage'>
+              <TestPage />
+            </Route>
+            <Route path='/entities'>
+              <Entities />
+            </Route>
+            <Route path='/workspace'>
+              <Workspace />
+            </Route>
+            <Route path='/profile'>
+              <Profile />
+            </Route>
+          </Switch>
+        </Router>
+      </PostsDataContext.Provider>
+    </CurrentUserContext.Provider>
   );
 }
 

@@ -1,10 +1,12 @@
 import { FC } from 'react';
+import Publications from '../layout/Publications/Publications';
+import './Home.css';
 
 const Home: FC = () => {
   return (
-    <>
-      <span>Home page</span>
-    </>
+    <div className='home'>
+      <Publications />
+    </div>
   );
 };
 

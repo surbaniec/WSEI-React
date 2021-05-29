@@ -1,0 +1,7 @@
+.home {
+  display: flex;
+  width: 70%;
+  margin-top: 15px;
+  margin-left: 50px;
+  box-shadow: 0px 10px 20px 0px var(--box-shadow-color);
+}
