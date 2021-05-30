@@ -1,0 +1,16 @@
+.workspaces {
+  margin-top: 30px;
+}
+
+.workspaces__title {
+  color: var(--dark-blue-color);
+  font-size: 24px;
+  margin-bottom: 20px;
+  margin-left: 50px;
+}
+
+.workspaces__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

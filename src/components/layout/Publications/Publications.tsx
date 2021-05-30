@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { PostsDataContext } from '../../../App';
-import Publication from '../Publication/Publication';
+import Publication from './Publication';
 import './Publications.css';
 
 const Publications = () => {

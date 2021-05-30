@@ -1,12 +1,6 @@
 import React from 'react';
 import './Publication.css';
 
-interface IProps {
-  postTitle: string;
-  postAuthor: string;
-  postImg: string;
-}
-
 const Publication = ({ post }) => {
   return (
     <div className='post'>
