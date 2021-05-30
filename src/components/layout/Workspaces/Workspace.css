@@ -4,6 +4,7 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  box-shadow: 0px 5px 20px -5px var(--box-shadow-color);
 }
 
 .workspace__bg {
@@ -14,7 +15,7 @@
 }
 
 .workspace__body {
-  background-color: #fff;
+  background-color: var(--white-color);
   height: 150px;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
@@ -26,11 +27,11 @@
 
 .workspace__tile {
   position: absolute;
-  transform: translate(10%, -50%);
+  transform: translate(20%, -50%);
   width: 30%;
   height: 80px;
-  background-color: #fff;
-  border: 1px solid var(--dark-gray-color);
+  background-color: var(--white-color);
+  box-shadow: 0px 5px 20px -5px var(--box-shadow-color);
   border-radius: 3px;
   display: flex;
   justify-content: center;
@@ -47,7 +48,7 @@
   position: absolute;
   right: 0;
   margin-top: 10px;
-  margin-right: 20px;
+  margin-right: 10px;
   color: var(--dark-blue-color);
 }
 
