@@ -15,10 +15,10 @@ export const PostsDataContext = createContext({});
 export const ResumeDataContext = createContext({});
 
 function App() {
-  const [users, setUsers] = useState({});
-  const [photos, setPhotos] = useState({});
-  const [posts, setPosts] = useState({});
-  const [comments, setComments] = useState({});
+  const [users, setUsers] = useState<Object>({});
+  const [photos, setPhotos] = useState<Object>({});
+  const [posts, setPosts] = useState<Object>({});
+  const [comments, setComments] = useState<Object>({});
 
   const getUsers = async () => {
     try {

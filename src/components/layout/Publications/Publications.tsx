@@ -2,6 +2,7 @@ import React, { FC, useContext, useEffect, useState } from 'react';
 import { PostsDataContext } from '../../../App';
 import Publication from './Publication';
 import './Publications.css';
+import { Link } from 'react-router-dom';
 
 const Publications: FC = () => {
   const postsData = useContext(PostsDataContext);
@@ -65,9 +66,9 @@ const Publications: FC = () => {
           <Publication post={publications[1]} />
           <Publication post={publications[2]} />
           <Publication post={publications[3]} />
-          <a href='#' className='publications__more-publications'>
+          <Link to='/testpage' className='publications__more-publications'>
             See more publications
-          </a>
+          </Link>
         </div>
       </div>
     );

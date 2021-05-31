@@ -86,11 +86,11 @@ const ResumeWork: FC = () => {
                 .filter((item) =>
                   item['resumeTitle'].toUpperCase().includes(filterText)
                 )
-                .map((resume) => {
-                  return <Resume dataResume={resume} />;
+                .map((resume, i) => {
+                  return <Resume key={i} dataResume={resume} />;
                 })
-            : resumes.map((resume) => {
-                return <Resume dataResume={resume} />;
+            : resumes.map((resume, i) => {
+                return <Resume key={i} dataResume={resume} />;
               })}
         </div>
       </div>

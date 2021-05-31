@@ -45,8 +45,9 @@ const ExpandedMenu: FC<IProps> = ({
                 .filter((item) =>
                   item.linkText.toUpperCase().includes(filterText)
                 )
-                .map((item) => (
+                .map((item, i) => (
                   <MenuItem
+                    key={i}
                     url={item.url}
                     linkText={item.linkText}
                     iconUrl={item.iconUrl}
@@ -60,8 +61,9 @@ const ExpandedMenu: FC<IProps> = ({
                 .filter((item) =>
                   item.linkText.toUpperCase().includes(filterText)
                 )
-                .map((item) => (
+                .map((item, i) => (
                   <MenuItem
+                    key={i}
                     url={item.url}
                     linkText={item.linkText}
                     iconUrl={item.iconUrl}
@@ -74,9 +76,10 @@ const ExpandedMenu: FC<IProps> = ({
           <>
             <span className='expanded-menu__section-name'>Platform</span>
             <ul className='menu'>
-              {menu1.map((item) => {
+              {menu1.map((item, i) => {
                 return (
                   <MenuItem
+                    key={i}
                     url={item.url}
                     linkText={item.linkText}
                     iconUrl={item.iconUrl}
@@ -87,9 +90,10 @@ const ExpandedMenu: FC<IProps> = ({
             </ul>
             <span className='expanded-menu__section-name'>Workspaces</span>
             <ul className='menu'>
-              {menu2.map((item) => {
+              {menu2.map((item, i) => {
                 return (
                   <MenuItem
+                    key={i}
                     url={item.url}
                     linkText={item.linkText}
                     iconUrl={item.iconUrl}
