@@ -1,21 +1,29 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, FC } from 'react';
 import './ExpandedMenu.css';
 import { menu1, menu2 } from '../../../data/MenuData';
 import { Link } from 'react-router-dom';
 import MenuItem from '../MenuItem/MenuItem';
 import { CurrentUserContext } from '../../../App';
 
-const ExpandedMenu = ({ changeCurrentPageTitle, changeCurrentMenuIcon }) => {
+interface IProps {
+  changeCurrentPageTitle: (title: string) => void;
+  changeCurrentMenuIcon: (iconUrl: string) => void;
+}
+
+const ExpandedMenu: FC<IProps> = ({
+  changeCurrentPageTitle,
+  changeCurrentMenuIcon,
+}: IProps) => {
   const currentUser = useContext(CurrentUserContext);
 
-  const [filterText, setFilterText] = useState('');
+  const [filterText, setFilterText] = useState<string>('');
 
-  const handleClick = (title: string, iconUrl: string) => {
+  const handleClick = (title: string, iconUrl: string): void => {
     changeCurrentPageTitle(title);
     changeCurrentMenuIcon(iconUrl);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setFilterText(e.target.value.toUpperCase());
   };
 

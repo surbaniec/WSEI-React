@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-const MenuItem = ({ url, linkText, iconUrl, handleClick }) => {
+interface IProps {
+  url: string;
+  linkText: string;
+  iconUrl: string;
+  handleClick: (title: string, iconUrl: string) => void;
+}
+
+const MenuItem: FC<IProps> = ({ url, linkText, iconUrl, handleClick }) => {
   return (
     <li className='menu__item'>
       <Link

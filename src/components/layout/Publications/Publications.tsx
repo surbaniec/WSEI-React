@@ -1,17 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { FC, useContext, useEffect, useState } from 'react';
 import { PostsDataContext } from '../../../App';
 import Publication from './Publication';
 import './Publications.css';
 
-const Publications = () => {
+const Publications: FC = () => {
   const postsData = useContext(PostsDataContext);
   const [publications, setPublications] = useState<Object[]>([]);
 
   useEffect(() => {
     createPosts();
+    //eslint-disable-next-line
   }, []);
 
-  const createPosts = () => {
+  const createPosts = (): void => {
     const newPublications: Object[] = [];
     for (let i = 0; i <= 3; i++) {
       const randomNumber = Math.floor(Math.random() * 30);

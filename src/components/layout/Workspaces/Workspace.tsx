@@ -13,7 +13,7 @@ interface IProps {
   data: IWorkspace;
 }
 
-const Workspace: FC<IProps> = ({ data }: IProps) => {
+const Workspace: FC<IProps> = ({ data }) => {
   return (
     <div className='workspace'>
       <img src={data.workspaceBg} alt='' className='workspace__bg' />

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-const Entities = () => {
+const Entities: FC = () => {
   return (
     <>
       <span>Entities page</span>

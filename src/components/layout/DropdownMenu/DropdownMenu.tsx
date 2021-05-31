@@ -4,22 +4,22 @@ import useDropdown from 'react-dropdown-hook';
 import ExpandedMenu from '../ExpandedMenu/ExpandedMenu';
 
 const DropdownMenu: FC = () => {
-  const [selectedPage, setSelectedPage] = useState('Home');
-  const [currentMenuIcon, setCurrentMenuIcon] = useState(
+  const [selectedPage, setSelectedPage] = useState<string>('Home');
+  const [currentMenuIcon, setCurrentMenuIcon] = useState<string>(
     '../../../assets/house2.svg'
   );
 
   const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown();
 
-  const handleClick = () => {
+  const handleClick = (): void => {
     toggleDropdown();
   };
 
-  const changeCurrentPageTitle = (title: string) => {
+  const changeCurrentPageTitle = (title: string): void => {
     setSelectedPage(title);
   };
 
-  const changeCurrentMenuIcon = (iconUrl: string) => {
+  const changeCurrentMenuIcon = (iconUrl: string): void => {
     setCurrentMenuIcon(iconUrl);
   };
 

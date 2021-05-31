@@ -1,19 +1,20 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, FC } from 'react';
 import { ResumeDataContext } from '../../../App';
 import Resume from '../Resume/Resume';
 import './ResumeWork.css';
 
-const ResumeWork = () => {
+const ResumeWork: FC = () => {
   const resumeData = useContext(ResumeDataContext);
   const [resumes, setResumes] = useState<Object[]>([]);
-  const [isClicked, setIsClicked] = useState(false);
-  const [filterText, setFilterText] = useState('');
+  const [isClicked, setIsClicked] = useState<boolean>(false);
+  const [filterText, setFilterText] = useState<string>('');
 
   useEffect(() => {
     createResumes();
+    //eslint-disable-next-line
   }, []);
 
-  const createResumes = () => {
+  const createResumes = (): void => {
     const newResumes: Object[] = [];
     for (let i = 0; i <= 9; i++) {
       const resumeTitle = resumeData['comments'][i].name;
@@ -36,11 +37,11 @@ const ResumeWork = () => {
   };
 
   // hide & display search icon and placeholder depending on focus state
-  const handleFocus = (e) => {
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     e.target.placeholder = '';
     setIsClicked(true);
   };
-  const handleBlur = (e) => {
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     e.target.placeholder = 'Filter by title...';
     setIsClicked(false);
   };

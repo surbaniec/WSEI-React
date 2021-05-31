@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Workspace from './Workspace';
 import { IWorkspace } from './Workspace';
 import './Workspaces.css';
 
-const Workspaces = () => {
+const Workspaces: FC = () => {
   const workspacesData: IWorkspace[] = [
     {
       workspaceBg: '../../assets/client-contract.png',

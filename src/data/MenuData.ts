@@ -1,4 +1,10 @@
-export const menu1 = [
+interface IMenuData {
+  iconUrl: string;
+  linkText: string;
+  url: string;
+}
+
+export const menu1: IMenuData[] = [
   {
     iconUrl: './assets/house2.svg',
     linkText: 'Home',
@@ -26,7 +32,7 @@ export const menu1 = [
   },
 ];
 
-export const menu2 = [
+export const menu2: IMenuData[] = [
   {
     iconUrl: './assets/entities.png',
     linkText: 'Client contract',

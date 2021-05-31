@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './Resume.css';
 
 interface IProps {
   dataResume: Object;
 }
 
-const Resume = (dataResume: IProps) => {
+const Resume: FC<IProps> = (dataResume) => {
   return (
     <div className='resume'>
       <h3 className='resume__title'>{dataResume.dataResume['resumeTitle']}</h3>

@@ -2,14 +2,14 @@ import { FC, useState } from 'react';
 import './SearchBar.css';
 
 const SearchBar: FC = () => {
-  const [isClicked, setIsClicked] = useState(false);
+  const [isClicked, setIsClicked] = useState<boolean>(false);
 
   // hide & display search icon and placeholder depending on focus state
-  const handleFocus = (e) => {
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     e.target.placeholder = '';
     setIsClicked(true);
   };
-  const handleBlur = (e) => {
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     e.target.placeholder = 'Search Legalcluster';
     setIsClicked(false);
   };
