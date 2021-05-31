@@ -33,13 +33,13 @@ const Workspaces: FC = () => {
       workspaceType: 'Norms',
       workspaceUsers: 25,
     },
-    // {
-    //   workspaceBg: '../../assets/client-contract.png',
-    //   workspaceIcon: '../../assets/entities2.svg',
-    //   workspaceTitle: 'Real estate contract',
-    //   workspaceType: 'Contract',
-    //   workspaceUsers: 50,
-    // },
+    {
+      workspaceBg: '../../assets/client-contract.png',
+      workspaceIcon: '../../assets/entities2.svg',
+      workspaceTitle: 'Real estate contract',
+      workspaceType: 'Contract',
+      workspaceUsers: 50,
+    },
   ];
 
   return (

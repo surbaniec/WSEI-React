@@ -38,3 +38,35 @@
   font-size: 18px;
   cursor: pointer;
 }
+
+.resume__dropdown {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.resume__dropdown-btn {
+  background: transparent;
+  font-size: 14px;
+  color: var(--dark-blue-color);
+  border-color: var(--dark-blue-color);
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 15px;
+  width: 30%;
+  margin: 0 auto;
+  list-style: none;
+}
+
+.pagination li {
+  cursor: pointer;
+  color: var(--blue-color);
+}

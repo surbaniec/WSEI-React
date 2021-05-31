@@ -11,6 +11,15 @@
 
 .workspaces__list {
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
 }
+
+/* .workspaces__list::-webkit-scrollbar {
+  display: none;
+} */

@@ -1,13 +1,21 @@
 import React, { useContext, useState, useEffect, FC } from 'react';
-import { ResumeDataContext } from '../../../App';
+import { CurrentUserContext, ResumeDataContext } from '../../../App';
 import Resume from '../Resume/Resume';
 import './ResumeWork.css';
+import useDropdown from 'react-dropdown-hook';
+import ReactPaginate from 'react-paginate';
 
 const ResumeWork: FC = () => {
   const resumeData = useContext(ResumeDataContext);
   const [resumes, setResumes] = useState<Object[]>([]);
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const [filterText, setFilterText] = useState<string>('');
+  const [myPosts, setMyPosts] = useState<string>(' ');
+  const [currentPage, setCurrentPage] = useState<number>(0);
+
+  const currentUser = useContext(CurrentUserContext);
+
+  const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown();
 
   useEffect(() => {
     createResumes();
@@ -16,7 +24,7 @@ const ResumeWork: FC = () => {
 
   const createResumes = (): void => {
     const newResumes: Object[] = [];
-    for (let i = 0; i <= 9; i++) {
+    for (let i = 0; i <= 40; i++) {
       const resumeTitle = resumeData['comments'][i].name;
       const resumeContent = resumeData['comments'][i].body;
       const commentsAuthorId = resumeData['comments'][i].postId;
@@ -50,6 +58,22 @@ const ResumeWork: FC = () => {
     setFilterText(e.target.value.toUpperCase());
   };
 
+  const handleClick = (): void => {
+    toggleDropdown();
+  };
+
+  const filterMyPosts = (): void => {
+    setMyPosts(currentUser['name']);
+  };
+  const filterAllPosts = (): void => {
+    setMyPosts(' ');
+  };
+
+  const handlePageClick = (data) => {
+    const selected = data.selected;
+    setCurrentPage(selected);
+  };
+
   if (resumes.length > 0) {
     return (
       <div className='resume-work'>
@@ -74,25 +98,59 @@ const ResumeWork: FC = () => {
               />
             )}
           </div>
-          <button className='resume__btn'>
-            <img src='../../assets/settings.svg' alt='' />
-            <span>Followed</span>
-            <img src='../../assets/plus.svg' alt='' />
-          </button>
+          <div ref={wrapperRef}>
+            <button className='resume__btn' onClick={() => handleClick()}>
+              <img src='../../assets/settings.svg' alt='' />
+              <span>Followed</span>
+              <img src='../../assets/plus.svg' alt='' />
+            </button>
+            {dropdownOpen && (
+              <div className='resume__dropdown'>
+                <button
+                  className='resume__dropdown-btn'
+                  onClick={() => filterMyPosts()}
+                  value='my'
+                >
+                  My
+                </button>
+                <button
+                  className='resume__dropdown-btn'
+                  onClick={() => filterAllPosts()}
+                  value='all'
+                >
+                  All
+                </button>
+              </div>
+            )}
+          </div>
         </div>
         <div className='resume__list'>
           {filterText !== ''
             ? resumes
+                .slice(currentPage, currentPage + 10)
                 .filter((item) =>
                   item['resumeTitle'].toUpperCase().includes(filterText)
                 )
+                .filter((item) => item['resumeAuthor'].includes(myPosts))
                 .map((resume, i) => {
                   return <Resume key={i} dataResume={resume} />;
                 })
-            : resumes.map((resume, i) => {
+            : resumes.slice(currentPage, currentPage + 10).map((resume, i) => {
                 return <Resume key={i} dataResume={resume} />;
               })}
         </div>
+        <ReactPaginate
+          previousLabel={'previous'}
+          nextLabel={'next'}
+          breakLabel={'...'}
+          breakClassName={'break-me'}
+          pageCount={resumes.length / 10}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          onPageChange={handlePageClick}
+          containerClassName={'pagination'}
+          activeClassName={'active'}
+        />
       </div>
     );
   } else {
