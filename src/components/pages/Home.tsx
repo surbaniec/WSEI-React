@@ -9,7 +9,7 @@ const Home: FC = () => {
     <div className='home'>
       <Publications />
       <Workspaces />
-      <ResumeWork />
+      <ResumeWork title={'Resume your work'} showMenu={false} />
     </div>
   );
 };

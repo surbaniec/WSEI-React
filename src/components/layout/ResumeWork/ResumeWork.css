@@ -7,13 +7,12 @@
 .resume__menu {
   display: flex;
   justify-content: space-around;
+  flex-direction: column;
   align-items: center;
 }
 
 .resume-work__title {
   color: var(--dark-blue-color);
-  margin-left: 30px;
-  width: 55%;
 }
 
 .searchbar__container {
@@ -25,6 +24,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  margin: 15px 0;
 }
 
 .resume__btn {
@@ -61,7 +62,7 @@
   justify-content: space-around;
   align-items: center;
   padding: 10px 15px;
-  width: 30%;
+  width: 100%;
   margin: 0 auto;
   list-style: none;
 }
@@ -69,4 +70,28 @@
 .pagination li {
   cursor: pointer;
   color: var(--blue-color);
+}
+
+@media (min-width: 748px) {
+  .pagination {
+    width: 60%;
+  }
+}
+
+@media (min-width: 900px) {
+  .resume__menu {
+    flex-direction: row;
+  }
+  .searchbar__container {
+    margin: 0 0;
+  }
+
+  .resume-work__title {
+    width: 55%;
+    margin-left: 30px;
+  }
+
+  .pagination {
+    width: 30%;
+  }
 }

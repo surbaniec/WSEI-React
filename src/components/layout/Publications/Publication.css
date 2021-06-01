@@ -2,13 +2,13 @@
   display: flex;
   align-items: stretch;
   height: 20%;
-  width: 80%;
   cursor: pointer;
+  margin: 10px 0;
 }
 
 .post__img {
-  height: 100%;
-  width: auto;
+  width: 30%;
+  height: auto;
 }
 
 .post__body {
@@ -41,4 +41,11 @@
 
 .post__author-name {
   color: var(--dark-blue-color);
+}
+
+@media (min-width: 900px) {
+  .post__img {
+    height: 100%;
+    width: auto;
+  }
 }

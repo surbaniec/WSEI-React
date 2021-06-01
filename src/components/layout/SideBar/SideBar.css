@@ -1,5 +1,6 @@
 .sidebar-container {
-  margin: 15px 50px 15px 0;
+  padding-top: 15px;
+  margin: 0 auto;
   width: 300px;
 }
 
@@ -111,8 +112,10 @@
   color: var(--dark-blue-color);
 }
 
-@media (min-width: 760px) {
+@media (min-width: 900px) {
   .sidebar-container {
     float: left;
+    width: 20%;
+    margin-right: 150px;
   }
 }

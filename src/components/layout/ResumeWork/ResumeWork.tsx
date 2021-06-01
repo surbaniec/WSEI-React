@@ -5,7 +5,12 @@ import './ResumeWork.css';
 import useDropdown from 'react-dropdown-hook';
 import ReactPaginate from 'react-paginate';
 
-const ResumeWork: FC = () => {
+interface IProps {
+  title: string;
+  showMenu: boolean;
+}
+
+const ResumeWork: FC<IProps> = ({ title, showMenu }) => {
   const resumeData = useContext(ResumeDataContext);
   const [resumes, setResumes] = useState<Object[]>([]);
   const [isClicked, setIsClicked] = useState<boolean>(false);
@@ -78,7 +83,7 @@ const ResumeWork: FC = () => {
     return (
       <div className='resume-work'>
         <div className='resume__menu'>
-          <h2 className='resume-work__title'>Resume your work</h2>
+          <h2 className='resume-work__title'>{title}</h2>
           <div className='searchbar__container'>
             <input
               type='text'
@@ -124,6 +129,7 @@ const ResumeWork: FC = () => {
             )}
           </div>
         </div>
+        <div>{showMenu === true ? <p>menu</p> : <span></span>}</div>
         <div className='resume__list'>
           {filterText !== ''
             ? resumes
@@ -135,9 +141,12 @@ const ResumeWork: FC = () => {
                 .map((resume, i) => {
                   return <Resume key={i} dataResume={resume} />;
                 })
-            : resumes.slice(currentPage, currentPage + 10).map((resume, i) => {
-                return <Resume key={i} dataResume={resume} />;
-              })}
+            : resumes
+                .slice(currentPage, currentPage + 10)
+                .filter((item) => item['resumeAuthor'].includes(myPosts))
+                .map((resume, i) => {
+                  return <Resume key={i} dataResume={resume} />;
+                })}
         </div>
         <ReactPaginate
           previousLabel={'previous'}

@@ -18,7 +18,7 @@ export const TopBar: FC = () => {
       </Link>
 
       <DropdownMenu />
-      <SearchBar />
+      <SearchBar cssClass={'searchbar__input'} />
       <NotificationPanel />
     </div>
   );

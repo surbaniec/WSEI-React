@@ -1,7 +1,11 @@
 import { FC, useState } from 'react';
 import './SearchBar.css';
 
-const SearchBar: FC = () => {
+interface IProps {
+  cssClass: string;
+}
+
+const SearchBar: FC<IProps> = ({ cssClass }) => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
 
   // hide & display search icon and placeholder depending on focus state
@@ -21,7 +25,7 @@ const SearchBar: FC = () => {
         name='search'
         id='search'
         placeholder='Search Legalcluster'
-        className='searchbar__input'
+        className={cssClass}
         onFocus={(e) => handleFocus(e)}
         onBlur={(e) => handleBlur(e)}
       />
