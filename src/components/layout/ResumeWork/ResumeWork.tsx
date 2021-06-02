@@ -129,7 +129,68 @@ const ResumeWork: FC<IProps> = ({ title, showMenu }) => {
             )}
           </div>
         </div>
-        <div>{showMenu === true ? <p>menu</p> : <span></span>}</div>
+        <div>
+          {showMenu === true ? (
+            <div className='resume__second-menu'>
+              <button className='resume__second-menu-btn resume__second-menu-btn--blue'>
+                All
+              </button>
+              <button className='resume__second-menu-btn resume__second-menu-btn--green'>
+                <img
+                  className='resume__second-menu-icon'
+                  src='../../../assets/entities.svg'
+                  alt=''
+                />
+                SAS
+              </button>
+              <button className='resume__second-menu-btn resume__second-menu-btn--lightblue'>
+                <img
+                  className='resume__second-menu-icon'
+                  src='../../../assets/entities.svg'
+                  alt=''
+                />
+                SARL
+              </button>
+              <button className='resume__second-menu-btn resume__second-menu-btn--orange'>
+                <img
+                  className='resume__second-menu-icon'
+                  src='../../../assets/entities.svg'
+                  alt=''
+                />
+                Secondary business
+              </button>
+              <button className='resume__second-menu-btn resume__second-menu-btn--gray'>
+                <img
+                  className='resume__second-menu-icon'
+                  src='../../../assets/entities.svg'
+                  alt=''
+                />
+                Communities
+              </button>
+              <button className='resume__second-menu-btn resume__second-menu-btn--lightgray'>
+                <img
+                  className='resume__second-menu-icon'
+                  src='../../../assets/entities.svg'
+                  alt=''
+                />
+                POA
+              </button>
+              <button className='resume__second-menu-btn resume__second-menu-btn--white'>
+                <img
+                  className='resume__second-menu-icon'
+                  src='../../../assets/entities.svg'
+                  alt=''
+                />
+                Survey
+              </button>
+              <button className='resume__second-menu-btn resume__second-menu-btn--white'>
+                ...
+              </button>
+            </div>
+          ) : (
+            <span></span>
+          )}
+        </div>
         <div className='resume__list'>
           {filterText !== ''
             ? resumes

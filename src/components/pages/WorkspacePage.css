@@ -1,0 +1,150 @@
+.workspace__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 30px;
+  padding: 0 50px;
+}
+
+.workspace__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 6px;
+  background-color: var(--white-color);
+}
+
+.workspace__header-img {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.workspace__header-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.workspace__header-info-text {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.workspace__header-icon {
+  width: 15%;
+  height: auto;
+}
+
+.workspace__page-title {
+  color: var(--dark-blue-color);
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.workspace__cards {
+  margin-top: 30px;
+}
+
+.workspace__cards-title {
+  font-size: 16px;
+  color: var(--dark-gray-color);
+}
+
+.workspace__cards-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.workspace__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--white-color);
+  margin: 15px 0;
+  padding: 10px 15px;
+  border-radius: 6px;
+}
+
+.workspace__card-title {
+  margin-top: 10px;
+  font-weight: 400;
+}
+
+.workspace__card-text {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.bold {
+  font-weight: 700;
+  color: var(--dark-blue-color);
+}
+
+@media (min-width: 748px) {
+  .workspace__container {
+    width: 80%;
+    margin: 30px auto;
+  }
+
+  .workspace__header-img {
+    height: 200px;
+  }
+
+  .workspace__header-icon {
+    width: 10%;
+  }
+
+  .workspace__header-info-text {
+    width: 85%;
+  }
+}
+
+@media (min-width: 900px) {
+  .workspace__container {
+    width: 65%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .workspace__container {
+    width: 55%;
+    margin-left: 50px;
+  }
+
+  .workspace__cards-title {
+    margin-left: 30px;
+  }
+
+  .workspace__header-icon {
+    width: 5%;
+    margin-left: 30px;
+  }
+
+  .workspace__cards-list {
+    flex-direction: row;
+  }
+
+  .workspace__card {
+    justify-content: space-around;
+    align-items: flex-start;
+    height: 220px;
+    width: 300px;
+    margin: 15px;
+  }
+
+  .workspace__card-icon {
+    width: 40px;
+    height: auto;
+  }
+
+  .workspace__card-title {
+    font-size: 20px;
+  }
+}

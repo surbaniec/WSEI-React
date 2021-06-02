@@ -72,6 +72,66 @@
   color: var(--blue-color);
 }
 
+.resume__second-menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.resume__second-menu-btn {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0px 5px 20px -5px var(--box-shadow-color);
+  padding: 10px 15px;
+  cursor: pointer;
+  margin: 5px 0;
+}
+.resume__second-menu-btn--blue {
+  background-color: #85c1e9;
+  color: var(--dark-blue-color);
+}
+
+.resume__second-menu-btn--green {
+  background-color: #58d68d;
+  color: #239b56;
+}
+
+.resume__second-menu-btn--lightblue {
+  background-color: #d6eaf8;
+  color: #2e86c1;
+}
+
+.resume__second-menu-btn--orange {
+  background-color: #fad7a0;
+  color: #f39c12;
+}
+
+.resume__second-menu-btn--gray {
+  background-color: #ccd1d1;
+  color: #616a6b;
+}
+
+.resume__second-menu-btn--lightgray {
+  background-color: #e5e7e9;
+  color: #17202a;
+}
+
+.resume__second-menu-btn--white {
+  background-color: var(--white-color);
+  color: #000;
+}
+
+.resume__second-menu-icon {
+  margin-right: 10px;
+  width: 20px;
+  height: auto;
+}
+
 @media (min-width: 748px) {
   .pagination {
     width: 60%;

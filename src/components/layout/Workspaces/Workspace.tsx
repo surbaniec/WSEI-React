@@ -1,7 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, useContext } from 'react';
 import './Workspace.css';
 
 export interface IWorkspace {
+  id: number;
   workspaceBg: string;
   workspaceIcon: string;
   workspaceTitle: string;
