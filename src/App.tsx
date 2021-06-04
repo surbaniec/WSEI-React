@@ -112,7 +112,9 @@ function App() {
                 <TestPage />
               </Route>
               <Route path='/entities'>
-                <Entities />
+                {Object.keys(photos).length !== 0 && (
+                  <Entities photos={photos} />
+                )}
               </Route>
               <Route path='/workspace'>
                 <Workspace />

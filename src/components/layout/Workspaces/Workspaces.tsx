@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import Workspace from './Workspace';
-import { IWorkspace } from './Workspace';
 import './Workspaces.css';
 import { workspacesData } from '../../../data/WorkspacesData';
 
