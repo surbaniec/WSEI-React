@@ -1,8 +1,10 @@
-import React, { ChangeEvent, ChangeEventHandler, FC, useState } from 'react';
+import React, { FC, useState } from 'react';
 import './Entities.css';
 import useDropdown from 'react-dropdown-hook';
 import Entity from '../layout/Entity/Entity';
 import { EntitiesData } from '../../data/EntitiesData';
+import Popup from '../layout/Popup/Popup';
+import Filters from '../layout/Filters/Filters';
 
 interface IProps {
   photos: object;
@@ -11,6 +13,8 @@ interface IProps {
 const Entities: FC<IProps> = ({ photos }) => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const [filterText, setFilterText] = useState<string>('');
+  const [sort, setSort] = useState<boolean>(false);
+  const [filtersOpen, setFiltersOpen] = useState<boolean>(false);
 
   const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown();
 
@@ -29,7 +33,33 @@ const Entities: FC<IProps> = ({ photos }) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilterText(e.target.value.toUpperCase());
-    console.log(filterText);
+  };
+
+  const handleMosaic = () => {
+    const entitiesWrapper = document.querySelector('.entities__wrapper');
+    entitiesWrapper?.classList.remove('list');
+    entitiesWrapper?.classList.add('mosaic');
+  };
+
+  const handleList = () => {
+    const entitiesWrapper = document.querySelector('.entities__wrapper');
+    entitiesWrapper?.classList.remove('mosaic');
+    entitiesWrapper?.classList.add('list');
+  };
+
+  const handleResize = () => {
+    const entitiesContainer = document.querySelector('.entities-container');
+    const sidebarContainer = document.querySelector('.sidebar-container');
+    entitiesContainer?.classList.toggle('entities-expanded');
+    sidebarContainer?.classList.toggle('sidebar-expanded');
+  };
+
+  const showModal = () => {
+    const modal = document.querySelector('.modal');
+    modal?.classList.add('show');
+    setTimeout(() => {
+      modal?.classList.remove('show');
+    }, 500);
   };
 
   return (
@@ -44,7 +74,10 @@ const Entities: FC<IProps> = ({ photos }) => {
           />
         </div>
         <div className='entities__topmenu-right'>
-          <div className='entities__topmenu-option'>
+          <div
+            className='entities__topmenu-option'
+            onClick={() => handleMosaic()}
+          >
             <img
               className='entities__topmenu-icon-big'
               src='../../assets/mosaic-icon.svg'
@@ -52,7 +85,10 @@ const Entities: FC<IProps> = ({ photos }) => {
             />
             <span>Mosaic</span>
           </div>
-          <div className='entities__topmenu-option'>
+          <div
+            className='entities__topmenu-option'
+            onClick={() => handleList()}
+          >
             <img
               className='entities__topmenu-icon-big-2'
               src='../../assets/hamburger-icon.svg'
@@ -86,7 +122,10 @@ const Entities: FC<IProps> = ({ photos }) => {
             />
             <span>Sort</span>
           </div>
-          <div className='entities__menu-option'>
+          <div
+            className='entities__menu-option'
+            onClick={() => setFiltersOpen(!filtersOpen)}
+          >
             <img
               className='entities__topmenu-icon'
               src='../../assets/filter.svg'
@@ -94,7 +133,7 @@ const Entities: FC<IProps> = ({ photos }) => {
             />
             <span>Filters</span>
           </div>
-          <div className='entities__menu-option'>
+          <div className='entities__menu-option' onClick={() => handleResize()}>
             <img
               className='entities__topmenu-icon'
               src='../../assets/resize.svg'
@@ -105,6 +144,7 @@ const Entities: FC<IProps> = ({ photos }) => {
             className='entities__menu-option'
             onClick={() => {
               navigator.clipboard.writeText('localhost:3000/entities');
+              showModal();
             }}
           >
             <img
@@ -151,6 +191,7 @@ const Entities: FC<IProps> = ({ photos }) => {
           </div>
         </div>
       </div>
+      <div className='filters__container'>{filtersOpen && <Filters />}</div>
       <div className='entities__wrapper'>
         {filterText !== ''
           ? Object.entries(EntitiesData)
@@ -175,6 +216,9 @@ const Entities: FC<IProps> = ({ photos }) => {
                 />
               );
             })}
+      </div>
+      <div className='modal'>
+        <Popup message={'Copied to clipboard!'} />
       </div>
     </div>
   );

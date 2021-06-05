@@ -1,6 +1,7 @@
 .entities-container {
   margin-top: 30px;
   padding-top: 30px;
+  transition: width 0.3s ease-in-out;
 }
 
 .entities__topmenu {
@@ -77,6 +78,10 @@
   margin: 15px 0;
 }
 
+.entities__menu {
+  margin-top: 20px;
+}
+
 .entities__menu-left {
   display: flex;
   justify-content: space-around;
@@ -108,10 +113,36 @@
 }
 
 .entities__wrapper {
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+}
+
+.mosaic {
+  flex-direction: row;
+}
+
+.list {
+  flex-direction: column;
+}
+
+.entities-expanded {
+  width: 100% !important;
+  padding: 30px 60px;
+}
+
+.modal {
+  display: none;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.show {
+  display: block;
 }
 
 @media (min-width: 740px) {
