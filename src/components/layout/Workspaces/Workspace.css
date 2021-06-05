@@ -9,6 +9,10 @@
   box-shadow: 0px 5px 20px -5px var(--box-shadow-color);
 }
 
+.workspace__link {
+  text-decoration: none;
+}
+
 .workspace__bg {
   width: 100%;
   height: 120px;
@@ -51,6 +55,10 @@
   right: 0;
   margin-top: 10px;
   margin-right: 10px;
+  color: var(--dark-blue-color);
+}
+
+.workspace__subtitle {
   color: var(--dark-blue-color);
 }
 

@@ -48,6 +48,7 @@ const ExpandedMenu: FC<IProps> = ({
                 .map((item, i) => (
                   <MenuItem
                     key={i}
+                    id={item.id}
                     url={item.url}
                     linkText={item.linkText}
                     iconUrl={item.iconUrl}
@@ -64,6 +65,7 @@ const ExpandedMenu: FC<IProps> = ({
                 .map((item, i) => (
                   <MenuItem
                     key={i}
+                    id={item.id}
                     url={item.url}
                     linkText={item.linkText}
                     iconUrl={item.iconUrl}
@@ -80,6 +82,7 @@ const ExpandedMenu: FC<IProps> = ({
                 return (
                   <MenuItem
                     key={i}
+                    id={item.id}
                     url={item.url}
                     linkText={item.linkText}
                     iconUrl={item.iconUrl}
@@ -94,6 +97,7 @@ const ExpandedMenu: FC<IProps> = ({
                 return (
                   <MenuItem
                     key={i}
+                    id={item.id}
                     url={item.url}
                     linkText={item.linkText}
                     iconUrl={item.iconUrl}

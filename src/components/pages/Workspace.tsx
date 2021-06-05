@@ -1,24 +1,30 @@
 import React, { FC } from 'react';
 import ResumeWork from '../layout/ResumeWork/ResumeWork';
 import './WorkspacePage.css';
+import { useLocation } from 'react-router-dom';
 
 const Workspace: FC = () => {
+  const location = useLocation();
+  const { workspacesData } = location.state;
+
   return (
     <div className='workspace__container'>
       <div className='workspace__header'>
         <img
           className='workspace__header-img'
-          src='../../assets/corporate.png'
+          src={workspacesData['workspaceBg']}
           alt=''
         />
         <div className='workspace__header-info'>
           <img
             className='workspace__header-icon'
-            src='../../assets/entities2.svg'
+            src={workspacesData['workspaceIcon']}
             alt=''
           />
           <div className='workspace__header-info-text'>
-            <h2 className='workspace__page-title'>Corporate</h2>
+            <h2 className='workspace__page-title'>
+              {workspacesData['workspaceTitle']}
+            </h2>
             <p className='workspace__text'>
               Workspace purpose and a bit of context. This much needed
               description is here to remind people where they are, if they are

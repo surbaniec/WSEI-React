@@ -70,6 +70,7 @@
   margin: 15px 0;
   padding: 10px 15px;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 .workspace__card-title {
@@ -114,7 +115,7 @@
 
 @media (min-width: 1200px) {
   .workspace__container {
-    width: 55%;
+    width: 60%;
     margin-left: 50px;
   }
 
