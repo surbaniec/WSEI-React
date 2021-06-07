@@ -93,7 +93,6 @@ function App() {
     photos,
     comments,
   };
-
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <PostsDataContext.Provider value={postsData}>

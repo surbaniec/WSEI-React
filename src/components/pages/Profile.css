@@ -1,0 +1,144 @@
+.profile__container {
+  margin-top: 30px;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white-color);
+  border-radius: 6px;
+  box-shadow: 0px 5px 20px -5px var(--box-shadow-color);
+}
+
+.profile__header {
+  padding: 0 15px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid var(--dark-gray-color);
+}
+
+.profile__actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile__actions-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.profile__actions-option span {
+  display: none;
+}
+
+.profile__actions-img {
+  width: 25px;
+  height: 25px;
+}
+
+.profile__header-profile-img {
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.profile__header-profile {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+
+.profile__header-profile-info,
+.profile__header-profile-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+.profile__header-profile-name {
+  font-size: 18px;
+  color: var(--dark-blue-color);
+}
+
+.profile__editBtn {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  width: 25px;
+  height: 25px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.profile__header-profile-desc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .profile__container {
+    margin: 30px auto 0;
+  }
+
+  .profile__header-profile {
+    flex-direction: row;
+  }
+
+  .profile__header-profile-img {
+    margin-right: 10px;
+  }
+
+  .profile__header-profile-info,
+  .profile__header-profile-contact {
+    align-items: flex-start;
+  }
+
+  .profile__header-profile-info {
+    flex-direction: row;
+  }
+
+  .profile__header-profile-img {
+    height: 80px;
+    width: 80px;
+  }
+
+  .profile__header-profile-name {
+    font-size: 20px;
+  }
+
+  .profile__actions-option span {
+    display: block;
+    margin-left: 10px;
+  }
+
+  .profile__header-profile-desc {
+    height: 80px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: 1024px) {
+  .profile__container {
+    width: 70%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .profile__container {
+    width: 70%;
+  }
+}
