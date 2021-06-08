@@ -74,8 +74,8 @@
 
 .profile__editBtn {
   position: absolute;
-  right: 0;
-  top: 10px;
+  right: 10px;
+  top: 15px;
   width: 25px;
   height: 25px;
   border: none;
@@ -88,6 +88,195 @@
   align-items: center;
 }
 
+.profile__specialities {
+  position: relative;
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--dark-gray-color);
+}
+
+.profile__specialities,
+.profile__speciality-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__speciality-wrapper div {
+  display: flex;
+  align-items: center;
+}
+
+.profile__speciality-title {
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--dark-gray-color);
+}
+
+.profile__speciality {
+  margin: 10px 5px;
+  background-color: #e6f0f3;
+  color: var(--blue-color);
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-weight: 300;
+}
+
+.profile__panel-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--dark-gray-color);
+}
+
+.profile__panel-info div {
+  margin: 10px 0;
+}
+
+.profile__section-title {
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.profile__section-text {
+  font-weight: 300;
+}
+
+.profile__attachment {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  background-color: var(--light-blue-color);
+  border: 3px;
+  cursor: pointer;
+}
+
+.profile__corespondants {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile__correspondant {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: var(--light-blue-color);
+  border: 3px;
+  cursor: pointer;
+  font-weight: 300;
+}
+
+.profile__correspondant div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile__correspondant-icon {
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.profile__tables span {
+  color: var(--blue-color);
+  cursor: pointer;
+  font-weight: 300;
+  padding-left: 20px;
+}
+
+.profile__tables-table {
+  margin: 20px 0;
+}
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+  margin-bottom: 10px;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: 0.5em 0 0.75em;
+  text-align: left;
+  padding-left: 20px;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 0.35em;
+}
+
+table th,
+table td {
+  padding: 0.625em;
+  text-align: center;
+}
+
+table th {
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 0.625em;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+
 @media (min-width: 768px) {
   .profile__container {
     margin: 30px auto 0;
@@ -98,7 +287,7 @@
   }
 
   .profile__header-profile-img {
-    margin-right: 10px;
+    margin-right: 20px;
   }
 
   .profile__header-profile-info,
@@ -129,6 +318,18 @@
     justify-content: center;
     align-items: flex-start;
   }
+
+  .profile__attachment {
+    justify-content: flex-start;
+  }
+
+  .profile__attachment img {
+    margin-right: 10px;
+  }
+
+  .profile__correspondant-icon {
+    margin-right: 10px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -140,5 +341,14 @@
 @media (min-width: 1200px) {
   .profile__container {
     width: 70%;
+  }
+
+  .profile__editBtn {
+    width: 20px;
+    height: 20px;
+  }
+
+  .profile__header {
+    padding: 0 25px 30px;
   }
 }
