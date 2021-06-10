@@ -58,6 +58,12 @@
   position: relative;
 }
 
+.profile__header-input {
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+}
+
 .profile__header-profile-info,
 .profile__header-profile-contact {
   display: flex;
@@ -118,6 +124,17 @@
   color: var(--blue-color);
   border-radius: 6px;
   padding: 5px 10px;
+  font-weight: 300;
+}
+
+.profile__speciality-input {
+  font-size: 16px;
+  border: none;
+  padding: 10px;
+}
+
+.profile__speciality-input::placeholder {
+  color: var(--blue-color);
   font-weight: 300;
 }
 
@@ -341,6 +358,14 @@ table th {
 @media (min-width: 1200px) {
   .profile__container {
     width: 70%;
+  }
+
+  .profile__actions {
+    justify-content: flex-end;
+  }
+
+  .profile__actions-option {
+    margin: 0 10px;
   }
 
   .profile__editBtn {

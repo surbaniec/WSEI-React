@@ -1,5 +1,5 @@
 .workspace {
-  width: 250px;
+  width: 300px;
   position: relative;
   cursor: pointer;
   display: flex;
@@ -18,6 +18,7 @@
   height: 120px;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
+  object-fit: cover;
 }
 
 .workspace__body {

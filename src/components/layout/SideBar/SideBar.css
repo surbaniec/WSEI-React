@@ -22,6 +22,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  text-decoration: none;
 }
 
 .profile-card__avatar {
@@ -76,11 +77,6 @@
   width: 70%;
   text-decoration: none;
   color: var(--dark-blue-color);
-}
-
-.profile-card__icon {
-  width: 20px;
-  height: 20px;
 }
 
 .sidebar__menu {

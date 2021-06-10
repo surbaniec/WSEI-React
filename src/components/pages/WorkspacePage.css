@@ -21,6 +21,7 @@
   height: auto;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
+  object-fit: cover;
 }
 
 .workspace__header-info {
@@ -147,5 +148,9 @@
 
   .workspace__card-title {
     font-size: 20px;
+  }
+
+  .workspace__card-text {
+    text-align: left;
   }
 }

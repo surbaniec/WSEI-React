@@ -9,7 +9,7 @@ const SideBar: FC = () => {
   return (
     <div className='sidebar-container'>
       <div className='profile-card'>
-        <div className='profile-card__header'>
+        <Link to='/profile' className='profile-card__header'>
           {/* eslint-disable-next-line */}
           <img
             src={
@@ -28,7 +28,7 @@ const SideBar: FC = () => {
               ? currentUser['company']['name']
               : 'company name'}
           </span>
-        </div>
+        </Link>
         <div className='profile-card__footer'>
           <div className='profile-card__footer-wrapper'>
             <img

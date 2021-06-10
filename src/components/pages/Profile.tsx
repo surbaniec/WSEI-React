@@ -1,10 +1,32 @@
-import React, { FC, useContext } from 'react';
+import React, { FC, useContext, useEffect, useState } from 'react';
 import { CurrentUserContext } from '../../App';
 import './Profile.css';
 import { Link } from 'react-router-dom';
 
 const Profile: FC = () => {
   const currentUser = useContext(CurrentUserContext);
+  const [editSection1, setEditSection1] = useState<boolean>(false);
+  const [editSection2, setEditSection2] = useState<boolean>(false);
+
+  useEffect(() => {
+    const inputs = document.querySelectorAll('.profile__speciality-input');
+    if (editSection2 === true) {
+      inputs.forEach((input) => input.removeAttribute('disabled'));
+    }
+
+    if (editSection2 === false) {
+      inputs.forEach((input) => input.setAttribute('disabled', 'true'));
+    }
+
+    const inputs2 = document.querySelectorAll('.profile__header-input');
+    if (editSection1 === true) {
+      inputs2.forEach((input) => input.removeAttribute('disabled'));
+    }
+
+    if (editSection1 === false) {
+      inputs2.forEach((input) => input.setAttribute('disabled', 'true'));
+    }
+  }, [editSection1, editSection2]);
 
   return (
     <div className='profile__container'>
@@ -58,14 +80,31 @@ const Profile: FC = () => {
               <span className='profile__header-profile-name'>
                 {currentUser ? currentUser['name'] : 'username'}
               </span>
-              <span>New York Partner</span>
+              <span>
+                {currentUser['company']
+                  ? currentUser['company']['name']
+                  : 'company name'}
+              </span>
             </div>
           </div>
           <div className='profile__header-profile-contact'>
-            <span>humbertaswift@gmail.com</span>
-            <span>+33 (0)6 12 34 56 78</span>
+            <input
+              type='text'
+              className='profile__header-input'
+              placeholder='humbertaswift@gmail.com'
+              disabled
+            />
+            <input
+              type='text'
+              className='profile__header-input'
+              placeholder='+33 (0)6 12 34 56 78'
+              disabled
+            />
           </div>
-          <button className='profile__editBtn'>
+          <button
+            className='profile__editBtn'
+            onClick={() => setEditSection1(!editSection1)}
+          >
             <img src='../../assets/pen.svg' alt='' />
           </button>
         </div>
@@ -74,14 +113,29 @@ const Profile: FC = () => {
         <div className='profile__speciality-wrapper'>
           <h3 className='profile__speciality-title'>Expertise</h3>
           <div>
-            <span className='profile__speciality'>Mergers and acquisition</span>
+            <input
+              type='text'
+              className='profile__speciality profile__speciality-input'
+              placeholder='Mergers and acquisition'
+              disabled
+            />
           </div>
         </div>
         <div className='profile__speciality-wrapper'>
           <h3 className='profile__speciality-title'>Specialities</h3>
           <div>
-            <span className='profile__speciality'>Cross border operation</span>
-            <span className='profile__speciality'>Transaction over 500M$</span>
+            <input
+              type='text'
+              className='profile__speciality profile__speciality-input'
+              placeholder='Cross border operation'
+              disabled
+            />
+            <input
+              type='text'
+              className='profile__speciality profile__speciality-input'
+              placeholder='Transaction over 500M$'
+              disabled
+            />
           </div>
         </div>
         <div className='profile__speciality-wrapper'>
@@ -89,19 +143,35 @@ const Profile: FC = () => {
             Admission to practice law
           </h3>
           <div>
-            <span className='profile__speciality'>Paris bar association</span>
-            <span className='profile__speciality'>
-              Tunisian bar association
-            </span>
+            <input
+              type='text'
+              className='profile__speciality profile__speciality-input'
+              placeholder='Paris bar association'
+              disabled
+            />
+            <input
+              type='text'
+              className='profile__speciality profile__speciality-input'
+              placeholder='Tunisian bar association'
+              disabled
+            />
           </div>
         </div>
         <div className='profile__speciality-wrapper'>
           <h3 className='profile__speciality-title'>Countries</h3>
           <div>
-            <span className='profile__speciality'>Tunisia</span>
+            <input
+              type='text'
+              className='profile__speciality profile__speciality-input'
+              placeholder='Tunisia'
+              disabled
+            />
           </div>
         </div>
-        <button className='profile__editBtn'>
+        <button
+          className='profile__editBtn'
+          onClick={() => setEditSection2(!editSection2)}
+        >
           <img src='../../assets/pen.svg' alt='' />
         </button>
       </div>
