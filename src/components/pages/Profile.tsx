@@ -10,15 +10,22 @@ const Profile: FC = () => {
 
   useEffect(() => {
     const inputs = document.querySelectorAll('.profile__speciality-input');
+    const inputs3 = document.querySelectorAll('.profile__section-input');
+    const inputs4 = document.querySelectorAll('.profile__table-input');
     if (editSection2 === true) {
       inputs.forEach((input) => input.removeAttribute('disabled'));
+      inputs3.forEach((input) => input.removeAttribute('disabled'));
+      inputs4.forEach((input) => input.removeAttribute('disabled'));
     }
 
     if (editSection2 === false) {
       inputs.forEach((input) => input.setAttribute('disabled', 'true'));
+      inputs3.forEach((input) => input.setAttribute('disabled', 'true'));
+      inputs4.forEach((input) => input.setAttribute('disabled', 'true'));
     }
 
     const inputs2 = document.querySelectorAll('.profile__header-input');
+
     if (editSection1 === true) {
       inputs2.forEach((input) => input.removeAttribute('disabled'));
     }
@@ -76,15 +83,28 @@ const Profile: FC = () => {
               alt=''
             />
             <div className='profile__header-profile-desc'>
-              {' '}
-              <span className='profile__header-profile-name'>
-                {currentUser ? currentUser['name'] : 'username'}
-              </span>
-              <span>
-                {currentUser['company']
-                  ? currentUser['company']['name']
-                  : 'company name'}
-              </span>
+              <input
+                type='text'
+                className='profile__header-profile-name profile__header-input'
+                placeholder={currentUser ? currentUser['name'] : 'username'}
+                disabled
+              />
+              <input
+                type='text'
+                className='profile__header-profile-name profile__header-input'
+                placeholder={
+                  currentUser['company']
+                    ? currentUser['company']['name']
+                    : 'company name'
+                }
+                disabled
+              />
+              <input
+                type='text'
+                className='profile__header-input'
+                placeholder='New-York partner'
+                disabled
+              />
             </div>
           </div>
           <div className='profile__header-profile-contact'>
@@ -179,28 +199,42 @@ const Profile: FC = () => {
         <h2 className='profile__section-title'>Panel informations</h2>
         <div>
           <h3 className='profile__speciality-title'>Hourly fee</h3>
-          <span className='profile__section-text'>610$/hour (Negociated)</span>
+          <input
+            type='text'
+            className='profile__section-text profile__section-input'
+            placeholder='610$/hour (Negociated)'
+            disabled
+          />
         </div>
         <div>
           <h3 className='profile__speciality-title'>Terms & Conditions</h3>
-          <span className='profile__section-text'>
-            Monthly 10k$ retainer - see with Jeanny Smith
-          </span>
+          <input
+            type='text'
+            className='profile__section-text profile__section-input'
+            placeholder='Monthly 10k$ retainer'
+            disabled
+          />
           <div className='profile__attachment'>
             <img
               className='profile__actions-img'
               src='../../assets/edit-document.svg'
               alt=''
             />
-            <span className='profile__section-text'>
-              Attachment_lorem-ipsum25425.jpg
-            </span>
+            <input
+              type='text'
+              className='profile__section-text profile__section-input profile__section-input--blue'
+              placeholder='Attachment_lorem-ipsum25425.jpg'
+              disabled
+            />
           </div>
         </div>
         <h2 className='profile__section-title'>Services & Projects</h2>
-        <span className='profile__section-text'>
-          Corporate M&A and international acquisitions
-        </span>
+        <input
+          type='text'
+          className='profile__section-text profile__section-input'
+          placeholder='Corporate M&A and international acquisitions'
+          disabled
+        />
         <h2 className='profile__section-title'>Internal correspondants</h2>
         <div className='profile__corespondants'>
           <div className='profile__correspondant'>
@@ -210,18 +244,25 @@ const Profile: FC = () => {
                 src='../../assets/profile.svg'
                 alt=''
               />
-              <span className='profile__correspondant-name'>
-                Firstname Lastname
-              </span>
+              <input
+                type='text'
+                className='profile__correspondant-name profile__section-input profile__section-input--blue'
+                placeholder='Firstname Lastname'
+                disabled
+              />
             </div>
-
             <div>
               <img
                 className='profile__correspondant-icon'
                 src='../../assets/message.svg'
                 alt=''
               />
-              <span>Message</span>
+              <input
+                type='text'
+                className='profile__correspondant-name profile__section-input profile__section-input--blue'
+                placeholder='Message'
+                disabled
+              />
             </div>
             <div>
               <img
@@ -229,7 +270,12 @@ const Profile: FC = () => {
                 src='../../assets/profile.svg'
                 alt=''
               />
-              <span>Profile</span>
+              <input
+                type='text'
+                className='profile__correspondant-name profile__section-input profile__section-input--blue'
+                placeholder='Profile'
+                disabled
+              />
             </div>
           </div>
           <div className='profile__correspondant'>
@@ -240,18 +286,25 @@ const Profile: FC = () => {
                 src='../../assets/profile.svg'
                 alt=''
               />
-              <span className='profile__correspondant-name'>
-                Firstname Lastname
-              </span>
+              <input
+                type='text'
+                className='profile__correspondant-name profile__section-input profile__section-input--blue'
+                placeholder='Firstname Lastname'
+                disabled
+              />
             </div>
-
             <div>
               <img
                 className='profile__correspondant-icon'
                 src='../../assets/message.svg'
                 alt=''
               />
-              <span>Message</span>
+              <input
+                type='text'
+                className='profile__correspondant-name profile__section-input profile__section-input--blue'
+                placeholder='Message'
+                disabled
+              />
             </div>
             <div>
               <img
@@ -259,7 +312,12 @@ const Profile: FC = () => {
                 src='../../assets/profile.svg'
                 alt=''
               />
-              <span>Profile</span>
+              <input
+                type='text'
+                className='profile__correspondant-name profile__section-input profile__section-input--blue'
+                placeholder='Profile'
+                disabled
+              />
             </div>
           </div>
         </div>
@@ -280,28 +338,154 @@ const Profile: FC = () => {
             </thead>
             <tbody>
               <tr>
-                <td>Operation Ti...</td>
-                <td>Renault Co...</td>
-                <td>France</td>
-                <td>#Tax</td>
-                <td>20/01/2018</td>
-                <td>Racine</td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='Operation Ti...'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='Renault Co...'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='France'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='#Tax'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='20/01/2018'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='Racine'
+                    disabled
+                  />
+                </td>
               </tr>
               <tr>
-                <td>Op. Prometh...</td>
-                <td>Renault HQ</td>
-                <td>USA</td>
-                <td>#M&A</td>
-                <td>18/02/2019</td>
-                <td>Clifford chance</td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='Op. Prometh...'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='Renault HQ'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='USA'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='#M&A'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='18/02/2019'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='Clifford chance'
+                    disabled
+                  />
+                </td>
               </tr>
               <tr>
-                <td>Op. Latandre</td>
-                <td>Renault Br ...</td>
-                <td>Italia</td>
-                <td>#Social</td>
-                <td>18/02/2019</td>
-                <td>SVZ</td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='Op. Latandre'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='Renault Br...'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='Italia'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='#Social'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='18/02/2019'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='SVZ'
+                    disabled
+                  />
+                </td>
               </tr>
             </tbody>
           </table>
@@ -324,25 +508,130 @@ const Profile: FC = () => {
             </thead>
             <tbody>
               <tr>
-                <td>Operation Ti...</td>
-                <td>Renault Co...</td>
-                <td>France</td>
-                <td>#Tax</td>
-                <td>20/01/2018</td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='Opertion Ti...'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='Renault Co...'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='France'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='#Tax'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='20/01/2018'
+                    disabled
+                  />
+                </td>
               </tr>
               <tr>
-                <td>Op. Prometh...</td>
-                <td>Renault HQ</td>
-                <td>USA</td>
-                <td>#M&A</td>
-                <td>18/02/2019</td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='Op. Prometh'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='Renault HQ'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='USA'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='#M&A'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='18/02/2019'
+                    disabled
+                  />
+                </td>
               </tr>
               <tr>
-                <td>Op. Latandre</td>
-                <td>Renault Br ...</td>
-                <td>Italia</td>
-                <td>#Social</td>
-                <td>18/02/2019</td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='Op. Latandre'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='Renault Br ...'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='Italia'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='#Social'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='18/02/2019'
+                    disabled
+                  />
+                </td>
               </tr>
             </tbody>
           </table>
@@ -362,34 +651,160 @@ const Profile: FC = () => {
             </thead>
             <tbody>
               <tr>
-                <td>2019</td>
-                <td>CS 153</td>
-                <td>3 500$</td>
-                <td>Clifford chance</td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='2019'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='CS 153'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='3 500$'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='Clifford chance'
+                    disabled
+                  />
+                </td>
               </tr>
               <tr>
-                <td>2018</td>
-                <td>CS 153</td>
-                <td>9 500$</td>
-                <td>Linklaters</td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='2018'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='CS 153'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='9 500$'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='Linklaters'
+                    disabled
+                  />
+                </td>
               </tr>
               <tr>
-                <td>2017</td>
-                <td>CS 47</td>
-                <td>10 500$</td>
-                <td>Linklaters</td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='2017'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='CS 47'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='10 500$'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='Linklaters'
+                    disabled
+                  />
+                </td>
               </tr>
               <tr>
                 <td></td>
-                <td>CS 153</td>
-                <td>18 500$</td>
-                <td>Linklaters</td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='CS 153'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='18 500$'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='Linklaters'
+                    disabled
+                  />
+                </td>
               </tr>
               <tr>
                 <td></td>
-                <td>CS 32</td>
-                <td>15 500$</td>
-                <td>Linklaters</td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='CS 32'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='15 500$'
+                    disabled
+                  />
+                </td>
+                <td>
+                  <input
+                    type='text'
+                    className='profile__table-input'
+                    placeholder='Linklaters'
+                    disabled
+                  />
+                </td>
               </tr>
             </tbody>
           </table>
